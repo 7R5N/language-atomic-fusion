@@ -11,6 +11,28 @@
 		'name': 'constant.numeric.fusion'
 	}
 	{
+	    'begin': '\''
+	    'end': '\''
+	    'name': 'string.quoted.single.fusion'
+	}
+	{
+	    'begin': '\''
+	    'beginCaptures':
+	        '0':
+	            'name': 'punctuation.definition.string.begin.fusion'
+	    'end': '\''
+	    'endCaptures':
+	        '0':
+	            'name': 'punctuation.definition.string.end.fusion'
+	    'name': 'string.quoted.single.mylanguage'
+	    'patterns': [
+	        {
+	            'match': '\\''
+	            'name': 'constant.character.escape.jusion'
+	        }
+	    ]
+	}
+	{
 		# Rule …
 	}
 ]
