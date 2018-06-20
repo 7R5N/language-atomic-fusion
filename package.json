@@ -1,12 +1,17 @@
 {
-    "name": "language-atomic-fusion",
-    "version": "0.0.1",
-    "private": true,
-    "description": "Atomic.Fusion support for Atom.",
-    "repository": "https://github.com/7R5N/language-atomic-fusion",
-    "license": "MIT",
-    "engines": {
-        "atom": ">1.0.0"
-    },
-    "dependencies": {}
+  "name": "language-atomic-fusion",
+  "version": "0.0.0",
+  "description": "Atomic.Fusion support for Atom.",
+  "engines": {
+    "atom": "*"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/7R5N/language-atomic-fusion.git"
+  },
+  "bugs": {
+    "url": "https://github.com/7R5N/language-atomic-fusion/issues"
+  },
+  "license": "MIT"
 }
