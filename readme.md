@@ -6,9 +6,9 @@ Atomic.Fusion syntax highlighting for the Atom editor.
 
 Languages supported:
 * Fusion
-~~* HTML~~
-~~* CSS~~
-~~* JavaScript~~
+* ~~HTML~~
+* ~~CSS~~
+* ~~JavaScript~~
 
 Atomic.Fusion is a Template Development Environment for the NEOS CMS.
 Learn more about Atomic-Fusion here https://www.neos.io/blog/atomic-fusion.html
