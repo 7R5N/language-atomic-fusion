@@ -1,0 +1,41 @@
+
+prototype(Wysiwyg.Takeover.Templates:Component.Atom.DefinitionList) < prototype(PackageFactory.AtomicFusion:Component) {
+
+
+    // STYLEGUIDE
+
+    @styleguide {
+        title = 'Definition List'
+        description = 'Listing of pairwise information, aka Definition List.'
+
+        props {
+            items = Neos.Fusion:Array {
+                0 = Wysiwyg.Takeover.Templates:Component.Atom.DefinitionListItem {
+                    definitionTerm = 'Telefon'
+                    definitionDescription = '+49 555 2222 222'
+                    definitionLink = ''
+                }
+                1 = Wysiwyg.Takeover.Templates:Component.Atom.DefinitionListItem {
+                    definitionTerm = 'E-Mail'
+                    definitionDescription = 'press@corporation.com'
+                    definitionLink = 'mailto:press@corporation.com'
+                }
+            }
+        }
+    }
+
+
+    // API
+
+    items = Neos.Fusion:Array {
+    }
+
+
+    // RENDERER
+
+    renderer = afx`
+        <dl class="definition">
+            {props.items}
+        </dl>
+    `
+}

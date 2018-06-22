@@ -1,0 +1,76 @@
+
+prototype(Wysiwyg.Takeover.Templates:Component.Molecule.Disclaimer) < prototype(PackageFactory.AtomicFusion:Component) {
+
+
+    // STYLEGUIDE
+
+    @styleguide {
+        title = 'Disclaimer'
+        description = 'Box with Disclaimer Text and Buttons.'
+
+        props {
+            disclaimerHeadline = 'Wichtige rechtliche Hinweise'
+            disclaimerText = '
+                <p>
+                    Die Broadview Industries AG (die "Bieterin") hat am 23. Mai 2018 ihre Entscheidung veröffentlicht, den Aktionären der Westag &amp; Getalit Aktiengesellschaft ("Westag &amp; Getalit-Aktionäre") anzubieten, im Rahmen eines freiwilligen öffentlichen Übernahmeangebots sämtliche Aktien der Westag &amp; Getalit Aktiengesellschaft zu erwerben (das "Übernahmeangebot").
+                </p>
+                <p>
+                    Auf den folgenden Seiten finden Sie die am 11. Juni 2018 veröffentlichte Angebotsunterlage, die die Bedingungen des Angebots sowie weitere das Angebot betreffende Bestimmungen enthält, die Veröffentlichung der Entscheidung zur Abgabe des Übernahmeangebots gemäß § 10 Abs. 1 i.V.m. §§ 29 Abs. 1, 34 Wertpapiererwerbs- und Übernahmegesetz (WpÜG), die Bekanntmachungen nach § 23 WpÜG sowie Pressemitteilungen und sonstige Informationen zum Übernahmeangebot.
+                </p>
+                <p>
+                    Das Übernahmeangebot bezieht sich auf Aktien einer deutschen Gesellschaft und unterliegt den gesetzlichen Vorschriften der Bundesrepublik Deutschland über die Durchführung eines solchen Angebots. Das Übernahmeangebot wird nicht Gegenstand eines Prüf- oder Registrierungsverfahrens einer Aufsichtsbehörde außerhalb Deutschlands sein und wurde von keiner solchen Aufsichtsbehörde genehmigt oder empfohlen.
+                </p>
+                <p>
+                    Westag &amp; Getalit-Aktionäre in den USA (die "US-Aktionäre") werden darauf hingewiesen, dass dieses Angebot in Hinblick auf Wertpapiere einer Gesellschaft abgegeben wird, die ein ausländischer Privatemittent (foreign private issuer) im Sinne des Securities Exchange Act der Vereinigten Staaten von 1934 in seiner aktuellen Fassung (der "Exchange Act") ist und deren Aktien nicht gemäß Section 12 des Exchange Act registriert sind. Das Übernahmeangebot erfolgt in den Vereinigten Staaten auf Grundlage der sogenannten Tier-1-Ausnahme von bestimmten Anforderungen des Exchange Act und unterliegt grundsätzlich den Offenlegungs- und sonstigen Vorschriften und Verfahren der Bundesrepublik Deutschland, die sich von den Vorschriften und Verfahren in den Vereinigten Staaten unterscheiden. Soweit das Übernahmeangebot den US-Wertpapiergesetzen unterliegt, finden diese Gesetze ausschließlich auf Inhaber von Aktien der Westag &amp; Getalit Aktiengesellschaft in den Vereinigten Staaten Anwendung, sodass keiner anderen Person Ansprüche aus diesen Gesetzen zustehen.
+                </p>
+                <p>
+                    Bei einem Wohnsitz von Aktionären außerhalb Deutschlands können sich für sie Schwierigkeiten bei der Durchsetzung von Rechten und Ansprüchen ergeben, die nach einem anderen Recht als dem Recht des Landes entstehen, in dem sich der Wohnsitz der betroffenen Aktionäre befindet. Dies ist auf die Tatsache zurückzuführen, dass die Westag &amp; Getalit Aktiengesellschaft ihren Sitz in Deutschland hat und einige oder alle ihrer Führungskräfte und Organmitglieder möglichweise ihren Wohnsitz in einem anderen Land als dem Wohnsitzland der betroffenen Aktionäre haben. Es ist unter Umständen nicht möglich, ein ausländisches Unternehmen oder dessen Führungskräfte bzw. Organmitglieder vor einem Gericht im Wohnsitzland der betroffenen Aktionäre aufgrund von Verstößen gegen Gesetze des Wohnsitzlandes zu verklagen. Des Weiteren können sich Schwierigkeiten ergeben, ein ausländisches Unternehmen und dessen verbundene Unternehmen zu zwingen, sich einem im Wohnsitzland der Aktionäre ergangenen Gerichtsurteil zu unterwerfen.
+                </p>
+                <p>
+                    Die Veröffentlichung, Versendung, Verteilung oder Verbreitung der Angebotsunterlage oder anderer mit dem Übernahmeangebot im Zusammenhang stehender Unterlagen kann außerhalb der Bundesrepublik Deutschland, der Mitgliedstaaten der Europäischen Union und des Europäischen Wirtschaftsraums und der Vereinigten Staaten rechtlichen Beschränkungen unterliegen. Ungeachtet der Tatsache, dass auf die Angebotsunterlage aufgrund der gemäß § 14 Abs. 3 S. 1 Nr. 1 WpÜG zwingend vorgeschriebenen Veröffentlichung der Angebotsunterlage im Internet weltweit zugegriffen werden kann, dürfen die Angebotsunterlage und sonstige mit dem Übernahmeangebot im Zusammenhang stehende Unterlagen nicht in Länder versandt oder dort verbreitet, verteilt oder veröffentlicht werden, in denen dies rechtswidrig wäre. Die Bieterin hat die Versendung, Veröffentlichung, Verteilung oder Verbreitung der Angebotsunterlage durch Dritte außerhalb der Bundesrepublik Deutschland, der Mitgliedstaaten der Europäischen Union und des Europäischen Wirtschaftsraums und der Vereinigten Staaten nicht gestattet. Daher dürfen die depotführenden Wertpapierdienstleistungsunternehmen die Angebotsunterlage außerhalb der Bundesrepublik Deutschland, der Mitgliedstaaten der Europäischen Union und des Europäischen Wirtschaftsraums und der Vereinigten Staaten nicht veröffentlichen, versenden, verteilen oder verbreiten, es sei denn, dies erfolgt in Übereinstimmung mit allen anwendbaren in- und ausländischen Rechtsvorschriften.
+                </p>
+                <p>
+                    Sämtliche auf dieser Internetseite enthaltenen Informationen und über diese Internetseite abrufbaren Dokumente dienen ausschließlich Informationszwecken und der Einhaltung der Bestimmungen des WpÜG, der WpÜG-Angebotsverordnung und sonstiger im Zusammenhang mit dem Übernahmeangebot anwendbarer Rechtsvorschriften. Die Bieterin übernimmt keine Verpflichtung zur Aktualisierung der bereitgestellten Informationen und Dokumente, soweit dies nicht gesetzlich vorgeschrieben ist. Bekanntmachungen auf dieser Internetseite stellen keine Aufforderung zur Abgabe eines Angebots zum Verkauf von Aktien der Westag &amp; Getalit Aktiengesellschaft dar und beinhalten oder bezwecken weder die Abgabe einer Zusicherung noch die Eingehung einer sonstigen rechtlichen Verpflichtung durch die Bieterin. Mit Ausnahme der am 11. Juni 2018 veröffentlichten Angebotsunterlage stellen Bekanntmachungen auf dieser Internetseite auch kein Angebot zum Kauf von Aktien der Westag &amp; Getalit Aktiengesellschaft dar. Die Bedingungen des Angebots sowie weitere das Angebot betreffende Bestimmungen sind alleine der am 11. Juni 2018 veröffentlichten Angebotsunterlage zu entnehmen, die auf den folgenden Seiten veröffentlicht ist. Die endgültigen Bedingungen des Übernahmeangebots können sich von den auf den folgenden Seiten beschriebenen allgemeinen Informationen unterscheiden. Westag &amp; Getalit-Aktionären wird dringend empfohlen, die am 11. Juni 2018 veröffentlichte Angebotsunterlage sowie alle sonstigen im Zusammenhang mit dem Angebot stehenden Dokumente zu lesen, sobald diese bekannt gemacht worden sind, da sie wichtige Informationen enthalten werden.
+                </p>
+            '
+            buttonCancel = Wysiwyg.Takeover.Templates:Component.Atom.Button {
+                buttonText = 'Ich bestätige nicht'
+                buttonType = 'reset'
+                buttonClassModifier = '--reset'
+            }
+            buttonSubmit = Wysiwyg.Takeover.Templates:Component.Atom.Button {
+                buttonText = 'Ich bestätige'
+                buttonType = 'submit'
+                buttonClassModifier = '--submit'
+            }
+        }
+    }
+
+
+    // API
+
+    disclaimerHeadline = ''
+    disclaimerText = ''
+    buttonCancel = Wysiwyg.Takeover.Templates:Component.Atom.Button {
+    }
+    buttonSubmit = Wysiwyg.Takeover.Templates:Component.Atom.Button {
+    }
+
+
+    // RENDERER
+
+    renderer = afx`
+        <div class="disclaimer">
+            <h2 class="disclaimer__headline">
+                {props.disclaimerHeadline}
+            </h2>
+            <div class="disclaimer__text">
+                {props.disclaimerText}
+            </div>
+            <div class="disclaimer__buttons">
+                {props.buttonCancel}
+                {props.buttonSubmit}
+            </div>
+        </div>
+    `
+}

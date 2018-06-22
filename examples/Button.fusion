@@ -1,0 +1,37 @@
+
+prototype(Wysiwyg.Takeover.Templates:Component.Atom.Button) < prototype(PackageFactory.AtomicFusion:Component) {
+
+
+    // STYLEGUIDE
+
+    @styleguide {
+        title = 'Button'
+        description = 'Generic Button for forms'
+
+        props {
+            identifier = 'button'
+            buttonText = 'Absenden'
+            buttonClassModifier = '--submit'
+            buttonType = 'submit'
+            location = '#'
+        }
+    }
+
+
+    // API
+
+    identifier = ''
+    buttonText = ''
+    buttonClassModifier = ''
+    buttonType = ''
+    location = ''
+
+
+    // RENDERER
+
+    renderer = afx`
+        <button id={props.identifier} class={'button' + props.buttonClassModifier} type={props.buttonType} data-location={props.location}>
+            {props.buttonText}
+        </button>
+    `
+}
