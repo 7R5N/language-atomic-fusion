@@ -5,7 +5,11 @@
   "engines": {
     "atom": "*"
   },
-  "dependencies": {},
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "homepage": "https://github.com/7R5N/language-atomic-fusion",
   "repository": {
     "type": "git",
     "url": "https://github.com/7R5N/language-atomic-fusion.git"
