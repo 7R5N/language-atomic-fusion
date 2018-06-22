@@ -5,12 +5,12 @@
 	'fusion'
 ]
 
-'firstLineMatch': '\\s*prototype\\(\.+\\)\\s*<\\s*prototype\\(\.+\\)\\s*((\{))'
+'firstLineMatch': '^((prototype)(\\()(\.+)\\:(\.+)(\\)))\\s*<\\s*(prototype)(\\()(\.+)\\:(\.+)(\\))\\s*({)'
 
 'patterns': [
 	{
 		# TEST AREA
-		'match': '\\s*prototype\\(\.+\\)\\s*<\\s*prototype\\(\.+\\)\\s*((\{))'
+		'match': '^((prototype)(\\()(\.+)\\:(\.+)(\\)))\\s*<\\s*(prototype)(\\()(\.+)\\:(\.+)(\\))\\s*({)'
 		'name': 'invalid.illegal.punctuation.fusion'
 	}
 	{
@@ -27,14 +27,14 @@
 	}
 	{
 		# Section STYLEGUIDE Intro
-		'begin': '\\s*((@)styleguide\\b)\\s*((\{))'
+		'begin': '^\\s+((@)styleguide\\b)\\s*(\{)'
 		'beginCaptures':
 			'1':
-				'name': 'keyword.section.control.at-rule.fusion'
+				'name': 'keyword.control.fusion'
 			'3':
-				'name': 'meta.structure.section.fusion'
-			'4':
-				'name': 'punctuation.section.property-list.begin.fusion'
+				'name': 'punctuation.array.fusion'
+			#'4':
+			#	'name': 'punctuation.section.property-list.begin.fusion'
 		'end': '\{'
 		'endCaptures':
 			'1':
@@ -43,29 +43,29 @@
 				#		'include': '#rule-list'
 				#	}
 				#]
-				'name': 'punctuation.section.property-list.begin.fusion'
+				'name': 'punctuation.array.fusion'
 	}
 	{
 		# Section RENDERER
 		'begin': '^\\s+(renderer\\b)\\s*((\=)\\s*([A-Za-z]+)(`))'
 		'beginCaptures':
 			'1':
-				'name': 'keyword.section.control.fusion'
+				'name': 'keyword.control.fusion'
 			'2':
 				'name': 'meta.structure.dictionary.value.json.fusion'
 			'3':
-				'name': 'source.keyword.operator.assignment.fusion'
+				'name': 'punctuation.seperator.fusion'
 			'4':
-				'name': 'constant.language.renderer.json.fusion'
+				'name': 'keyword.other.special-method.fusion'
 			'5':
-				'name': 'punctuation.definition.string.begin.fusion'
+				'name': 'markup.quote.fusion'
 		'end': '^\\s+(`)$'
 		'endCaptures':
 			'1':
-				'name': 'punctuation.definition.string.end.fusion'
+				'name': 'markup.quote.fusion'
 		'patterns': [
 			{
-				'include': '#html'
+				'include': 'text.html.basic'
 			}
 		]
 	}
@@ -99,97 +99,97 @@
 ]
 
 'repository':
-	# Properties
-	'property-name':
-		'begin': '(?=[-A-Za-z]+)'
-		'end': '(?!\\G)'
-		'name': 'meta.property-name.fusion'
-		'patterns': [
-			{
-				'include': 'source.css#property-names'
-			}
-		]
-	'property-value':
-		'patterns': [
-			{
-				'include': 'source.css#numeric-values'
-			}
-			{
-				'match': '[-+*/](?!\\s*[-+*/])'
-				'name': 'keyword.operator.css'
-			}
-			{
-				'include': '#variable-usage'
-			}
-			{
-				'match': '\\b(true|false)\\b'
-				'name': 'support.constant.property-value.css.fusion'
-			}
-			{
-				'include': 'source.css#property-keywords'
-			}
-			{
-				'include': '#string-double'
-			}
-			{
-				'include': '#string-single'
-			}
-			{
-				'begin': '(rgb|url|attr|counter|counters|local|format)\\s*(\\()'
-				'beginCaptures':
-					'1':
-						'name': 'support.function.misc.fusion'
-					'2':
-						'name': 'punctuation.section.function.fusion'
-				'end': '(\\))'
-				'endCaptures':
-					'1':
-						'name': 'punctuation.section.function.fusion'
-				'patterns': [
-					{
-						'include': '#string-single'
-					}
-					{
-						'match': '[^\'") \\t]+'
-						'name': 'variable.parameter.misc.fusion'
-					}
-				]
-			}
-		]
-	# Strings / Single Quotation Marks
-	'string-single':
-		'begin': '\''
-		'beginCaptures':
-			'0':
-				'name': 'punctuation.definition.string.begin.fusion'
-		'end': '\''
-		'endCaptures':
-			'0':
-				'name': 'punctuation.definition.string.end.fusion'
-		'name': 'string.quoted.single.fusion'
-		'patterns': [
-			{
-				'match': '\\\\(\\h{1,6}|.)'
-				'name': 'constant.constant.language-range.fusion'
-			}
-		]
-	# Strings / Double Quotation Marks
-	'string-single':
-		'begin': '\"'
-		'beginCaptures':
-			'0':
-				'name': 'punctuation.definition.string.begin.fusion'
-		'end': '\"'
-		'endCaptures':
-			'0':
-				'name': 'punctuation.definition.string.end.fusion'
-		'name': 'string.quoted.double.fusion'
-		'patterns': [
-			{
-				'match': '\\\\(\\h{1,6}|.)'
-				'name': 'constant.constant.language-range.fusion'
-			}
-		]
+	# # Properties
+	# 'property-name':
+	# 	'begin': '(?=[-A-Za-z]+)'
+	# 	'end': '(?!\\G)'
+	# 	'name': 'meta.property-name.fusion'
+	# 	'patterns': [
+	# 		{
+	# 			'include': 'source.css#property-names'
+	# 		}
+	# 	]
+	# 'property-value':
+	# 	'patterns': [
+	# 		{
+	# 			'include': 'source.css#numeric-values'
+	# 		}
+	# 		{
+	# 			'match': '[-+*/](?!\\s*[-+*/])'
+	# 			'name': 'keyword.operator.css'
+	# 		}
+	# 		{
+	# 			'include': '#variable-usage'
+	# 		}
+	# 		{
+	# 			'match': '\\b(true|false)\\b'
+	# 			'name': 'support.constant.property-value.css.fusion'
+	# 		}
+	# 		{
+	# 			'include': 'source.css#property-keywords'
+	# 		}
+	# 		{
+	# 			'include': '#string-double'
+	# 		}
+	# 		{
+	# 			'include': '#string-single'
+	# 		}
+	# 		{
+	# 			'begin': '(rgb|url|attr|counter|counters|local|format)\\s*(\\()'
+	# 			'beginCaptures':
+	# 				'1':
+	# 					'name': 'support.function.misc.fusion'
+	# 				'2':
+	# 					'name': 'punctuation.section.function.fusion'
+	# 			'end': '(\\))'
+	# 			'endCaptures':
+	# 				'1':
+	# 					'name': 'punctuation.section.function.fusion'
+	# 			'patterns': [
+	# 				{
+	# 					'include': '#string-single'
+	# 				}
+	# 				{
+	# 					'match': '[^\'") \\t]+'
+	# 					'name': 'variable.parameter.misc.fusion'
+	# 				}
+	# 			]
+	# 		}
+	# 	]
+	# # Strings / Single Quotation Marks
+	# 'string-single':
+	# 	'begin': '\''
+	# 	'beginCaptures':
+	# 		'0':
+	# 			'name': 'punctuation.definition.string.begin.fusion'
+	# 	'end': '\''
+	# 	'endCaptures':
+	# 		'0':
+	# 			'name': 'punctuation.definition.string.end.fusion'
+	# 	'name': 'string.quoted.single.fusion'
+	# 	'patterns': [
+	# 		{
+	# 			'match': '\\\\(\\h{1,6}|.)'
+	# 			'name': 'constant.constant.language-range.fusion'
+	# 		}
+	# 	]
+	# # Strings / Double Quotation Marks
+	# 'string-single':
+	# 	'begin': '\"'
+	# 	'beginCaptures':
+	# 		'0':
+	# 			'name': 'punctuation.definition.string.begin.fusion'
+	# 	'end': '\"'
+	# 	'endCaptures':
+	# 		'0':
+	# 			'name': 'punctuation.definition.string.end.fusion'
+	# 	'name': 'string.quoted.double.fusion'
+	# 	'patterns': [
+	# 		{
+	# 			'match': '\\\\(\\h{1,6}|.)'
+	# 			'name': 'constant.constant.language-range.fusion'
+	# 		}
+	# 	]
 	# Comments
 	'comments':
 		'patterns': [
@@ -219,73 +219,3 @@
 				'name': 'comment.line.fusion'
 			}
 		]
-	# # Rule List
-	# 'rule-list':
-	# 	'begin': '{'
-	# 	'beginCaptures':
-	# 		'0':
-	# 			'name': 'punctuation.section.property-list.begin.bracket.curly.fusion'
-	# 	'end': '}'
-	# 	'endCaptures':
-	# 	'name': 'meta.property-list.fusion'
-	# 			'name': 'punctuation.section.property-list.end.bracket.curly.fusion'
-	# 	'name': 'meta.property-list.fusion'
-	# 		'0':
-	# 			'name': 'punctuation.section.property-list.end.bracket.curly.fusion'
-	# 	'name': 'meta.property-list.fusion'
-	# 	'patterns': [
-	# 		{
-	# 			'include': '#rule-list-innards'
-	# 		}
-	# 	]
-	# # Rule List Innards
-	# 'rule-list-innards':
-	# 	'patterns': [
-	# 		{
-	# 			'include': '#comment-block'
-	# 		}
-	# 		{
-	# 			# Custom properties
-	# 			'match': '\''(?x) (?<![\\w-])
-	# 				--
-	# 				(?:[-a-zA-Z_]    | [^\\x00-\\x7F])     # First letter
-	# 				(?:[-a-zA-Z0-9_] | [^\\x00-\\x7F]      # Remainder of identifier
-	# 					|\\\\(?:[0-9a-fA-F]{1,6}|.)
-	# 				)*
-	# 			'\''
-	# 			'name': 'variable.fusion'
-	# 		}
-	# 		{
-	# 			'begin': '(?<![-a-zA-Z])(?=[-a-zA-Z])'
-	# 			'end': '$|(?![-a-zA-Z])'
-	# 			'name': 'meta.property-name.fusion'
-	# 			'patterns': [
-	# 				{
-	# 					'include': '#property-name'
-	# 				}
-	# 			]
-	# 		}
-	# 		{
-	# 			'begin': '(=)\\s*'
-	# 			'beginCaptures':
-	# 				'1':
-	# 					'name': 'punctuation.separator.key-value.fusion'
-	# 			'end': '\\s*(;)|\\s*(?=}|\\))'
-	# 			'endCaptures':
-	# 				'1':
-	# 					'name': 'punctuation.terminator.rule.fusion'
-	# 			'contentName': 'meta.property-value.fusion'
-	# 			'patterns': [
-	# 				{
-	# 					'include': '#comment-block'
-	# 				}
-	# 				{
-	# 					'include': '#property-value'
-	# 				}
-	# 			]
-	# 			}
-	# 			{
-	# 				'match': ';'
-	# 				'name': 'punctuation.terminator.rule.fusion'
-	# 			}
-	# 		]
