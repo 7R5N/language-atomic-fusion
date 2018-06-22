@@ -77,11 +77,13 @@
 			'1':
 				'name': 'meta.structure.fusion'
 			'2':
-				'name': 'meta.structure.key.---.entity.name.type.property-name.fusion'
+				#'name': 'meta.structure.key.---.entity.name.type.property-name.fusion'
+				'name': 'entity.other.attribute-name.fusion'
 			'3':
 				'name': 'punctuation.definition.separator.key-value.fusion'
 			'4':
-				'name': 'string.quoted.single.property-value.fusion'
+				#'name': 'string.quoted.single.property-value.fusion'
+				'name': 'string.fusion'
 			'5':
 				'name': 'punctuation.definition.string.begin.fusion'
 			'7':
