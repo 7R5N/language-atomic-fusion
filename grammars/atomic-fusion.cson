@@ -2,7 +2,7 @@
 'scopeName': 'source.text.plist.html.fusion'
 
 'fileTypes': [
-	'fusion_'
+	'fusion'
 ]
 
 'firstLineMatch': '\\s*prototype\\(\.+\\)\\s*<\\s*prototype\\(\.+\\)\\s*((\{))'
