@@ -9,187 +9,214 @@
 
 'patterns': [
 	{
-		# TEST AREA
-		'match': '^((prototype)(\\()(\.+)\\:(\.+)(\\)))\\s*<\\s*(prototype)(\\()(\.+)\\:(\.+)(\\))\\s*({)'
-		'name': 'invalid.illegal.punctuation.fusion'
+		# PROTOTYPE
+		'begin': '^((prototype)(\\()(\.+)(\\:)(\.+)(\\)))\\s*(<)\\s*((prototype)(\\()(\.+)(\\:)(\.+)(\\)))\\s*(\{)$'
+		'beginCaptures':
+			'1':
+				'name': 'meta.method.fusion'
+			'2':
+				'name': 'meta.tag.fusion'
+			'3':
+				'name': 'punctation.definition.separator.fusion'
+			'4':
+				'name': 'punctation.definition.parameter.fusion'
+			'5':
+				'name': 'punctation.definition.separator.fusion'
+			'6':
+				'name': 'entity.name.section.fusion'
+			'7':
+				'name': 'punctation.definition.separator.fusion'
+			'8':
+				'name': 'punctation.definition.seperator.fusion'
+			'9':
+				'name': 'meta.method.fusion'
+			'10':
+				'name': 'meta.tag.fusion'
+			'11':
+				'name': 'punctation.definition.separator.fusion'
+			'12':
+				'name': 'punctation.definition.parameter.fusion'
+			'13':
+				'name': 'punctation.definition.separator.fusion'
+			'14':
+				'name': 'punctation.definition.parameter.fusion'
+			'15':
+				'name': 'punctation.definition.separator.fusion'
+			'16':
+				'name': 'punctuation.definition.array.fusion'
+		'end': '^(\})$'
+		'endCaptures':
+			'1':
+				'name': 'punctuation.definition.array.fusion'
+		'patterns': [
+			{
+				# Import HTML Styles
+				'include': 'text.html.basic'
+			}
+			{
+				# Comments
+				'include': '#comments'
+			}
+			{
+				# Property Styleguide
+				'include': '#styleguide'
+			}
+			{
+				# Property Definition Single Line
+				'include': '#property-definition-single'
+			}
+			{
+				# Property Definition Multi Line
+				'include': '#property-definition-multi'
+			}
+			{
+				# Property Item
+				'include': '#property-item'
+			}
+			{
+				# Property Array
+				'include': '#property-array'
+			}
+			{
+				# Property Renderer
+				'include': '#renderer'
+			}
+		]
 	}
 	{
 		'match': '\\b(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))\\b'
 		'name': 'constant.numeric.fusion'
 	}
-	{
-		# HTML
-		'include': 'html' #goes not :-(
-	}
-	{
-		# Comments
-		'include': '#comments'
-	}
-	{
-		# Section STYLEGUIDE Intro
-		'begin': '^\\s+((@)styleguide\\b)\\s*(\{)'
-		'beginCaptures':
-			'1':
-				'name': 'keyword.control.fusion'
-			'3':
-				'name': 'punctuation.array.fusion'
-			#'4':
-			#	'name': 'punctuation.section.property-list.begin.fusion'
-		'end': '\{'
-		'endCaptures':
-			'1':
-				#'patterns': [
-				#	{
-				#		'include': '#rule-list'
-				#	}
-				#]
-				'name': 'punctuation.array.fusion'
-	}
-	{
-		# Section RENDERER
-		'begin': '^\\s+(renderer\\b)\\s*((\=)\\s*([A-Za-z]+)(`))'
-		'beginCaptures':
-			'1':
-				'name': 'keyword.control.fusion'
-			'2':
-				'name': 'meta.structure.dictionary.value.json.fusion'
-			'3':
-				'name': 'punctuation.seperator.fusion'
-			'4':
-				'name': 'keyword.other.special-method.fusion'
-			'5':
-				'name': 'markup.quote.fusion'
-		'end': '^\\s+(`)$'
-		'endCaptures':
-			'1':
-				'name': 'markup.quote.fusion'
-		'patterns': [
-			{
-				'include': 'text.html.basic'
-			}
-		]
-	}
-	{
-		# property-name = 'property-value'
-		'name': 'property-list.fusion'
-		'begin': '(^\\s+([-A-Za-z0-9]+)\\s*(\=)\\s*((\')?(\.+)?(\')?))'
-		'beginCaptures':
+]
+
+'repository':
+	# Properties
+	'property-definition-single':
+		'match': '^\\s+((\\w+)\\s*(\=)\\s*((\')(\.*)(\')))\\s*$'
+		'captures':
 			'1':
 				'name': 'meta.structure.fusion'
 			'2':
-				#'name': 'meta.structure.key.---.entity.name.type.property-name.fusion'
 				'name': 'entity.other.attribute-name.fusion'
 			'3':
 				'name': 'punctuation.definition.separator.key-value.fusion'
 			'4':
-				#'name': 'string.quoted.single.property-value.fusion'
 				'name': 'string.fusion'
 			'5':
-				'name': 'punctuation.definition.string.begin.fusion'
+				'name': 'punctuation.definition.parameters.fusion'
 			'7':
-				'name': 'punctuation.definition.string.end.fusion'
-		'end': '(;)?$'
+				'name': 'punctuation.definition.parameters.fusion'
+	'property-definition-multi':
+		'begin': '^\\s+(\\w+)\\s*(\=)\\s*(\')(\.*[^\'])'
+		'beginCaptures':
+			'1':
+				'name': 'entity.other.attribute-name.fusion'
+			'2':
+				'name': 'punctuation.definition.separator.key-value.fusion'
+			'3':
+				'name': 'punctuation.definition.parameters.fusion'
+			'4':
+				'name': 'string.fusion'
+		'end': '\\s*(\')\\s*$'
 		'endCaptures':
 			'1':
-				'name': 'invalid.illegal.punctuation.fusion'
-	}
-	{
-		# Rule …
-	}
-]
-
-'repository':
-	# # Properties
-	# 'property-name':
-	# 	'begin': '(?=[-A-Za-z]+)'
-	# 	'end': '(?!\\G)'
-	# 	'name': 'meta.property-name.fusion'
-	# 	'patterns': [
-	# 		{
-	# 			'include': 'source.css#property-names'
-	# 		}
-	# 	]
-	# 'property-value':
-	# 	'patterns': [
-	# 		{
-	# 			'include': 'source.css#numeric-values'
-	# 		}
-	# 		{
-	# 			'match': '[-+*/](?!\\s*[-+*/])'
-	# 			'name': 'keyword.operator.css'
-	# 		}
-	# 		{
-	# 			'include': '#variable-usage'
-	# 		}
-	# 		{
-	# 			'match': '\\b(true|false)\\b'
-	# 			'name': 'support.constant.property-value.css.fusion'
-	# 		}
-	# 		{
-	# 			'include': 'source.css#property-keywords'
-	# 		}
-	# 		{
-	# 			'include': '#string-double'
-	# 		}
-	# 		{
-	# 			'include': '#string-single'
-	# 		}
-	# 		{
-	# 			'begin': '(rgb|url|attr|counter|counters|local|format)\\s*(\\()'
-	# 			'beginCaptures':
-	# 				'1':
-	# 					'name': 'support.function.misc.fusion'
-	# 				'2':
-	# 					'name': 'punctuation.section.function.fusion'
-	# 			'end': '(\\))'
-	# 			'endCaptures':
-	# 				'1':
-	# 					'name': 'punctuation.section.function.fusion'
-	# 			'patterns': [
-	# 				{
-	# 					'include': '#string-single'
-	# 				}
-	# 				{
-	# 					'match': '[^\'") \\t]+'
-	# 					'name': 'variable.parameter.misc.fusion'
-	# 				}
-	# 			]
-	# 		}
-	# 	]
-	# # Strings / Single Quotation Marks
-	# 'string-single':
-	# 	'begin': '\''
-	# 	'beginCaptures':
-	# 		'0':
-	# 			'name': 'punctuation.definition.string.begin.fusion'
-	# 	'end': '\''
-	# 	'endCaptures':
-	# 		'0':
-	# 			'name': 'punctuation.definition.string.end.fusion'
-	# 	'name': 'string.quoted.single.fusion'
-	# 	'patterns': [
-	# 		{
-	# 			'match': '\\\\(\\h{1,6}|.)'
-	# 			'name': 'constant.constant.language-range.fusion'
-	# 		}
-	# 	]
-	# # Strings / Double Quotation Marks
-	# 'string-single':
-	# 	'begin': '\"'
-	# 	'beginCaptures':
-	# 		'0':
-	# 			'name': 'punctuation.definition.string.begin.fusion'
-	# 	'end': '\"'
-	# 	'endCaptures':
-	# 		'0':
-	# 			'name': 'punctuation.definition.string.end.fusion'
-	# 	'name': 'string.quoted.double.fusion'
-	# 	'patterns': [
-	# 		{
-	# 			'match': '\\\\(\\h{1,6}|.)'
-	# 			'name': 'constant.constant.language-range.fusion'
-	# 		}
-	# 	]
+				'name': 'punctuation.definition.parameters.fusion'
+		'patterns': [
+			{
+				# Import HTML Styles
+				'include': 'text.html.basic'
+			}
+		]
+	'property-item':
+		'begin': '^\\s+((\\w+)\\s*(\=)\\s*(\.*\:(\.+)))\\s*(\{)$'
+		'beginCaptures':
+			'1':
+				'name': 'meta.structure.fusion'
+			'2':
+				'name': 'entity.other.attribute-name.fusion'
+			'3':
+				'name': 'punctuation.definition.separator.key-value.fusion'
+			'4':
+				'name': 'punctation.definition.parameter.fusion'
+			'5':
+				'name': 'entity.name.section.fusion'
+			'6':
+				'name': 'punctuation.definition.array.fusion'
+		'end': '\\s+(\})\\s*$'
+		'patterns': [
+			{
+				# Property Definition Single Line
+				'include': '#property-definition-single'
+			}
+			{
+				# Property Definition Multi Line
+				'include': '#property-definition-multi'
+			}
+			{
+				# Import HTML Styles
+				'include': 'text.html.basic'
+			}
+		]
+	'property-array':
+		'begin': '^\\s+((\\w+)\\s*(\=)\\s*(\.*(\:(Array))))\\s*(\{)$'
+		'beginCaptures':
+			'1':
+				'name': 'meta.structure.fusion'
+			'2':
+				'name': 'entity.other.attribute-name.fusion'
+			'3':
+				'name': 'punctuation.definition.separator.key-value.fusion'
+			'4':
+				'name': 'punctation.definition.parameter.fusion'
+			'6':
+				'name': 'punctation.definition.parameter.fusion'
+			'7':
+				'name': 'punctuation.definition.array.fusion'
+		'end': '\\s+(\})\\s*$'
+		'patterns': [
+			{
+				# Property Array Item
+				'include': '#property-array-item'
+			}
+			# {
+			# 	# Property Definition Single Line
+			# 	'include': '#property-definition-single'
+			# }
+			# {
+			# 	# Property Definition Multi Line
+			# 	'include': '#property-definition-multi'
+			# }
+			# {
+			# 	# Import HTML Styles
+			# 	'include': 'text.html.basic'
+			# }
+		]
+	'property-array-item':
+		'begin': '^\\s+((\\d+)\\s*(\=)\\s*((\.+)(\\:)(\.+)))\\s*(\{)$'
+		'beginCaptures':
+			'1':
+				'name': 'meta.structure.fusion'
+			'2':
+				'name': 'meta.definition.variable.fusion'
+			'4':
+				'name': 'punctuation.definition.separator.key-value.fusion'
+			'5':
+				'name': 'punctation.definition.parameter.fusion'
+			'6':
+				'name': 'punctation.definition.separator.fusion'
+			'7':
+				'name': 'entity.name.section.fusion'
+		'end': '\\s+(\})\\s*$'
+		'patterns': [
+			{
+				# Property Definition Single Line
+				'include': '#property-definition-single'
+			}
+			{
+				# Property Definition Multi Line
+				'include': '#property-definition-multi'
+			}
+		]
 	# Comments
 	'comments':
 		'patterns': [
@@ -217,5 +244,85 @@
 						'name': 'punctuation.definition.comment.fusion'
 				'end': '^(?!\\s\\1)' # Must be indented by at least one space
 				'name': 'comment.line.fusion'
+			}
+		]
+	# Styleguide
+	'styleguide':
+		'begin': '^\\s+((@)styleguide\\b)\\s*(\{)'
+		'beginCaptures':
+			'1':
+				'name': 'keyword.control.fusion'
+			'3':
+				'name': 'punctuation.array.fusion'
+		'end': '^\\s+(\})'
+		'endCaptures':
+			'1':
+				'name': 'punctuation.array.fusion'
+		'patterns': [
+			{
+				# Property Definition Single Line
+				'include': '#property-definition-single'
+			}
+			{
+				# Property Definition Multi Line
+				'include': '#property-definition-multi'
+			}
+			{
+				# Props Listing @Styleguide
+				'include': '#props'
+			}
+		]
+	# Props @Styleguide
+	'props':
+		'begin': '^\\s+(props\\b)\\s*(\{)'
+		'beginCaptures':
+			'1':
+				'name': 'keyword.control.fusion'
+			'2':
+				'name': 'punctuation.array.fusion'
+		'end': '^\\s+(\})'
+		'endCaptures':
+			'1':
+				'name': 'punctuation.array.fusion'
+		'patterns': [
+			{
+				# Property Definition Single Line
+				'include': '#property-definition-single'
+			}
+			{
+				# Property Definition Multi Line
+				'include': '#property-definition-multi'
+			}
+			{
+				# Property Item
+				'include': '#property-item'
+			}
+			{
+				# Property Array
+				'include': '#property-array'
+			}
+		]
+	# Renderer
+	'renderer':
+		'begin': '^\\s+(renderer\\b)\\s*((\=)\\s*([A-Za-z]+)(`))'
+		'beginCaptures':
+			'1':
+				'name': 'keyword.control.fusion'
+			'2':
+				'name': 'meta.structure.dictionary.value.json.fusion'
+			'3':
+				'name': 'punctuation.seperator.fusion'
+			'4':
+				'name': 'keyword.other.special-method.fusion'
+			'5':
+				'name': 'markup.quote.fusion'
+		'end': '^\\s+(`)$'
+		'endCaptures':
+			'1':
+				'name': 'markup.quote.fusion'
+		'patterns': [
+			{
+				# Import HTML Styles
+				'include': 'text.html.basic'
 			}
 		]
