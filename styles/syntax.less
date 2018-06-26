@@ -1,0 +1,84 @@
+.syntax {
+
+    &--fusion {
+
+        &.syntax {
+
+            &--prototype {
+                color: @syntax-text-color;
+
+                &-keyword {
+                    color: @syntax-text-color;
+                }
+
+                &-path {
+                    color: @syntax-text-color;
+                }
+
+                &-component {
+                    color: @syntax-color-import;
+                }
+            }
+
+            &--property {
+                color: @syntax-color-property;
+
+                &-path {
+                    color: @syntax-color-tag;
+                }
+
+                &-value {
+                    color: @syntax-color-keyword;
+                }
+            }
+
+            &--number {
+                color: @syntax-color-variable;
+            }
+
+            &--context {
+                color: @syntax-color-keyword;
+            }
+
+            &--language {
+               color: @syntax-color-method;
+            }
+
+
+            // Punctuation
+
+            &--comment {
+                // use Theme’s standard
+            }
+
+            &--punctuation {
+                // use Theme’s standard
+            }
+
+            &--quote {
+                color: @syntax-text-color;
+                opacity: 0.8;
+            }
+
+            &--tree {
+                color: @syntax-text-color;
+                opacity: 0.8;
+            }
+
+            &--bracket {
+                color: @syntax-text-color;
+                opacity: 0.8;
+            }
+
+            &--operator {
+                color: @syntax-text-color;
+            }
+
+            // Non-Editable Content
+            // Mostly static and structural parts of the source code, i.e. these aren’t usually specificially edited
+            &--static {
+               opacity: 0.6;
+            }
+        }
+    }
+}
