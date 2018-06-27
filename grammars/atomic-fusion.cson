@@ -43,11 +43,11 @@
 			'15':
 				'name': 'bracket.static.fusion'
 			'16':
-				'name': 'tree.static.fusion'
+				'name': 'tree.fusion'
 		'end': '^(\})\\s*$'
 		'endCaptures':
 			'1':
-				'name': 'tree.static.fusion'
+				'name': 'tree.fusion'
 		'patterns': [
 			{
 				# Import HTML Styles
@@ -70,8 +70,12 @@
 				'include': '#property-definition-multi'
 			}
 			{
-				# Property Item
-				'include': '#property-item'
+				# Property Definition Dual
+				'include': '#property-definition-dual'
+			}
+			{
+				# Property Component
+				'include': '#property-component'
 			}
 			{
 				# Property Array
@@ -92,12 +96,12 @@
 'repository':
 	# Properties
 	'property-definition-single':
-		'match': '^\\s+((\\w+)\\s*(\=)\\s*(\')(\.*)(\'))\\s*$'
+		'match': '^\\s+((\\w+\\b)\\s*(\=)\\s*(\')(\.*)(\'))\\s*$'
 		'captures':
 			'1':
 				'name': 'property.fusion'
 			'2':
-				'name': 'property-path.fusion'
+				'name': 'property-keyword.fusion'
 			'3':
 				'name': 'operator.fusion'
 			'4':
@@ -110,7 +114,7 @@
 		'begin': '^\\s+(\\w+\\b)\\s*(\=)\\s*(\')\\s*$' # '^\\s+(\\w+)\\s*(\=)\\s*(\')(\.*[^\'])'
 		'beginCaptures':
 			'1':
-				'name': 'property-path.fusion'
+				'name': 'property-keyword.fusion'
 			'2':
 				'name': 'operator.fusion'
 			'3':
@@ -125,20 +129,33 @@
 				'include': 'text.html.basic'
 			}
 		]
-	'property-item':
-		'begin': '^\\s+((\\w+[^\d]\\b)\\s*(\=)\\s*(\.+)(\:)(?![Neos.Fusion:Array])(\.+\\b))\\s*(\{)\\s*$'
+	'property-definition-dual':
+		'match': '^\\s+((\\w+)\\s*(\=)\\s*(true|false))\\s*$'
+		'captures':
+			'1':
+				'name': 'property.fusion'
+			'2':
+				'name': 'property-keyword.fusion'
+			'3':
+				'name': 'operator.fusion'
+			'4':
+				'name': 'property-value.fusion'
+	'property-component':
+		'begin': '^\\s+((\\w+[^\\d]\\b)\\s*(\=)\\s*(?!(Neos.Fusion\\b))(\.+\\b)(\:)(?!(Array\\b))(\.+))\\b\\s*(\{)\\s*$'
 		'beginCaptures':
 			'1':
 				'name': 'property.fusion'
 			'2':
-				'name': 'property-path.fusion'
+				'name': 'property-keyword.fusion'
 			'3':
 				'name': 'operator.fusion'
-			'4':
-				'name': 'punctation.definition.parameter.fusion'
 			'5':
-				'name': 'entity.name.section.fusion'
+				'name': 'property-path.fusion'
 			'6':
+				'name': 'operator.fusion'
+			'8':
+				'name': 'property-component.fusion'
+			'9':
 				'name': 'tree.fusion'
 		'end': '^\\s+(\})\\s*$'
 		'endCaptures':
@@ -154,12 +171,20 @@
 				'include': '#property-definition-multi'
 			}
 			{
+				# Property Definition Dual
+				'include': '#property-definition-dual'
+			}
+			{
+				# Property Array
+				'include': '#property-array'
+			}
+			{
 				# Import HTML Styles
 				'include': 'text.html.basic'
 			}
 		]
 	'property-array':
-		'begin': '^\\s+((\\w+\\b)\\s*(\=)\\s*([Neos.Fusion]\\b)(\:)([Array]\\b))\\s*(\{)\\s*$'
+		'begin': '^\\s+((\\w+\\b)\\s*(\=)\\s*(Neos.Fusion\\b)(\:)(Array\\b))\\s*(\{)\\s*$'
 		'beginCaptures':
 			'1':
 				'name': 'property.fusion'
@@ -184,9 +209,13 @@
 				# Property Array Item
 				'include': '#property-array-item'
 			}
+			{
+				# Empty Property Array Item
+				'include': '#property-array-item-empty'
+			}
 		]
 	'property-array-item':
-		'begin': '^\\s+((\\d+\\b)\\s*(\=)\\s*((\.+)(\\:)(\.+)))\\s*(\{)\\s*$'
+		'begin': '^\\s+((\\d+\\b)\\s*(\=)\\s*(\.+)(\:)(\.+))\\s*(\{)\\s*$'
 		'beginCaptures':
 			'1':
 				'name': 'property.fusion'
@@ -216,14 +245,61 @@
 				'include': '#property-definition-multi'
 			}
 			{
-				# Property Item
-				'include': '#property-item'
+				# Property Definition Dual
+				'include': '#property-definition-dual'
+			}
+			{
+				# Property Component
+				'include': '#property-component'
 			}
 			{
 				# Property Array
 				'include': '#property-array'
 			}
 		]
+	'property-array-item-empty':
+		'match': '^\\s+((\\d+\\b)\\s*(\=)\\s*(\')(\'))\\s*$'
+		'captures':
+			'1':
+				'name': 'property.fusion'
+			'2':
+				'name': 'number.fusion'
+			'3':
+				'name': 'operator.fusion'
+			'4':
+				'name': 'quote.fusion'
+			'5':
+				'name': 'quote.fusion'
+	'property-embed':
+		'match': '((\{)(\\w+\\b)(\.)(\\w+\\b)(\}))'
+		'captures':
+			'1':
+				'name': 'property.fusion'
+			'2':
+				'name': 'bracket-embedded.fusion'
+			'3':
+				'name': 'property-path-embedded.fusion'
+			'4':
+				'name': 'operator.fusion'
+			'5':
+				'name': 'property-keyword.fusion'
+			'6':
+				'name': 'bracket-embedded.fusion'
+	'component-embed':
+		'match': '((\<)(\.+\\b)(\:)(\.+\\b)(\\s*\\/\>))'
+		'captures':
+			'1':
+				'name': 'property.fusion'
+			'2':
+				'name': 'bracket-embedded.fusion'
+			'3':
+				'name': 'property-path.fusion'
+			'4':
+				'name': 'operator.fusion'
+			'5':
+				'name': 'property-component.fusion'
+			'6':
+				'name': 'bracket-embedded.fusion'
 	# Comments
 	'comments':
 		'patterns': [
@@ -260,11 +336,11 @@
 			'1':
 				'name': 'context.static.fusion'
 			'2':
-				'name': 'tree.static.fusion'
+				'name': 'tree.fusion'
 		'end': '^\\s+(\})'
 		'endCaptures':
 			'1':
-				'name': 'tree.static.fusion'
+				'name': 'tree.fusion'
 		'patterns': [
 			{
 				# Property Definition Single Line
@@ -273,6 +349,10 @@
 			{
 				# Property Definition Multi Line
 				'include': '#property-definition-multi'
+			}
+			{
+				# Property Definition Dual
+				'include': '#property-definition-dual'
 			}
 			{
 				# Props Listing @Styleguide
@@ -286,11 +366,11 @@
 			'1':
 				'name': 'context.static.fusion'
 			'2':
-				'name': 'tree.static.fusion'
+				'name': 'tree.fusion'
 		'end': '^\\s+(\})'
 		'endCaptures':
 			'1':
-				'name': 'tree.static.fusion'
+				'name': 'tree.fusion'
 		'patterns': [
 			{
 				# Property Definition Single Line
@@ -301,8 +381,12 @@
 				'include': '#property-definition-multi'
 			}
 			{
-				# Property Item
-				'include': '#property-item'
+				# Property Definition Dual
+				'include': '#property-definition-dual'
+			}
+			{
+				# Property Component
+				'include': '#property-component'
 			}
 			{
 				# Property Array
@@ -320,12 +404,20 @@
 			'3':
 				'name': 'language.static.fusion'
 			'4':
-				'name': 'quote.static.fusion'
+				'name': 'quote.fusion'
 		'end': '^([\\s\\S]*)(`)$'
 		'endCaptures':
 			'2':
-				'name': 'quote.static.fusion'
+				'name': 'quote.fusion'
 		'patterns': [
+			{
+				# Embed Properties
+				'include': '#property-embed'
+			}
+			{
+				# Embed Component
+				'include': '#component-embed'
+			}
 			{
 				# Import HTML Styles
 				'include': 'text.html.basic'

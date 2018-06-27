@@ -1,3 +1,17 @@
+
+// Syntax Highlighting
+//
+// for language "Atomic.Fusion"
+//
+// for the Atom Editor
+
+
+// Import Styles from Theme
+@import "syntax-variables";
+
+
+// Customized Styles
+
 .syntax {
 
     &--fusion {
@@ -9,26 +23,45 @@
 
                 &-keyword {
                     color: @syntax-text-color;
+                    opacity: 0.75;
                 }
 
                 &-path {
                     color: @syntax-text-color;
+                    opacity: 0.75;
                 }
 
                 &-component {
                     color: @syntax-color-import;
+                    text-decoration: underline;
                 }
             }
 
             &--property {
                 color: @syntax-color-property;
 
+                &-keyword {
+                    color: @syntax-color-method;
+                }
+
                 &-path {
-                    color: @syntax-color-tag;
+                    color: @syntax-text-color;
+                    opacity: 0.75;
+
+                    &-embedded {
+                        color: @syntax-color-snippet;
+                        font-style: italic;
+                        //opacity: 1;
+                    }
                 }
 
                 &-value {
-                    color: @syntax-color-keyword;
+                    color: @syntax-text-color;
+                }
+
+                &-component {
+                    color: @syntax-color-import;
+                    text-decoration: underline;
                 }
             }
 
@@ -37,7 +70,7 @@
             }
 
             &--context {
-                color: @syntax-color-keyword;
+                color: @syntax-color-class;
             }
 
             &--language {
@@ -57,27 +90,33 @@
 
             &--quote {
                 color: @syntax-text-color;
-                opacity: 0.8;
+                opacity: 0.4;
             }
 
             &--tree {
                 color: @syntax-text-color;
-                opacity: 0.8;
+                opacity: 0.4;
             }
 
             &--bracket {
                 color: @syntax-text-color;
-                opacity: 0.8;
+                opacity: 0.4;
+
+                &-embedded {
+                    color: @syntax-color-snippet;
+                    opacity: 1;
+                }
             }
 
             &--operator {
                 color: @syntax-text-color;
+                opacity: 0.8;
             }
 
             // Non-Editable Content
             // Mostly static and structural parts of the source code, i.e. these aren’t usually specificially edited
             &--static {
-               opacity: 0.6;
+                font-style: italic;
             }
         }
     }
