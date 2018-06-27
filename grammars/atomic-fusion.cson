@@ -85,10 +85,10 @@
 				# Property Renderer
 				'include': '#renderer'
 			}
-			{
-				#
-				'include': '#tag-class-attribute'
-			}
+			# {
+			# 	#
+			# 	'include': '#tag-class-attribute'
+			# }
 		]
 	}
 	{
@@ -433,35 +433,35 @@
 
 
 
-	'tag-class-attribute':
-	    'begin': '\\b(class)\\s*(=)\\s*'
-	    'captures':
-	    	'1':
-	    		'name': 'entity.other.attribute-name.class.fusion'
-	    	'2':
-	    		'name': 'punctuation.separator.key-value.fusion'
-	    'end': '(?!\\G)|(?=\\s|/?>)'
-	    'name': 'meta.attribute-with-value.class.deprecated.invalid.fusion'
-	    'patterns': [
-      		{
-        		#'include': '#string-double-quoted'
-      		}
-      		{
-        		#'include': '#string-single-quoted'
-      		}
-      		{
-        		'include': '#unquoted-attribute'
-      		}
-    	]
-
-	'unquoted-attribute':
-    	'patterns': [
-    		{
-        		#'include': '#character-reference'
-    		}
-    		{
-        		# https://www.w3.org/TR/html51/syntax.html#attribute-value-unquoted-state
-        		'match': '([^\\s&>"\'<=`]|&(?=>))+'
-        		'name': 'string.unquoted.deprecated.invalid.fusion'
-    		}
-    	]
+	# 'tag-class-attribute':
+	#     'begin': '\\b(class)\\s*(=)\\s*'
+	#     'captures':
+	#     	'1':
+	#     		'name': 'entity.other.attribute-name.class.fusion'
+	#     	'2':
+	#     		'name': 'punctuation.separator.key-value.fusion'
+	#     'end': '(?!\\G)|(?=\\s|/?>)'
+	#     'name': 'meta.attribute-with-value.class.deprecated.invalid.fusion'
+	#     'patterns': [
+    #   		{
+    #     		#'include': '#string-double-quoted'
+    #   		}
+    #   		{
+    #     		#'include': '#string-single-quoted'
+    #   		}
+    #   		{
+    #     		'include': '#unquoted-attribute'
+    #   		}
+    # 	]
+	#
+	# 'unquoted-attribute':
+    # 	'patterns': [
+    # 		{
+    #     		#'include': '#character-reference'
+    # 		}
+    # 		{
+    #     		# https://www.w3.org/TR/html51/syntax.html#attribute-value-unquoted-state
+    #     		'match': '([^\\s&>"\'<=`]|&(?=>))+'
+    #     		'name': 'string.unquoted.deprecated.invalid.fusion'
+    # 		}
+    # 	]
