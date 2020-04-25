@@ -5,7 +5,7 @@
 	'fusion'
 ]
 
-'firstLineMatch': '^((prototype)(\\()(\.+)(\\:)(\.+)(\\)))\\s*(<)\\s*((prototype)(\\()(\.+)(\\:)(\.+)(\\)))\\s*(\{)\\s*$'
+'firstLineMatch': '^(\\n)?((prototype)(\\()(\.+)(\\:)(\.+)(\\)))\\s*(<)\\s*((prototype)(\\()(\.+)(\\:)(\.+)(\\)))\\s*(\{)\\s*$'
 
 'patterns': [
 	{
@@ -74,8 +74,16 @@
 				'include': '#property-definition-dual'
 			}
 			{
+				# Property Definition Numeric
+				'include': '#property-definition-numeric'
+			}
+			{
 				# Property Component
 				'include': '#property-component'
+			}
+			{
+				# Property Tag
+				'include': '#property-tag'
 			}
 			{
 				# Property Array
@@ -134,7 +142,7 @@
 			}
 		]
 	'property-definition-dual':
-		'match': '^\\s+((\\w+)\\s*(\=)\\s*(true|false))\\s*$'
+		'match': '^\\s+((\\w+)\\s*(\=)\\s*(true|false\\b))\\s*$'
 		'captures':
 			'1':
 				'name': 'property.fusion'
@@ -144,8 +152,19 @@
 				'name': 'operator.fusion'
 			'4':
 				'name': 'property-value.fusion'
+	'property-definition-numeric':
+		'match': '^\\s+((\\w+)\\s*(\=)\\s*(\\d\\b))\\s*$'
+		'captures':
+			'1':
+				'name': 'property.fusion'
+			'2':
+				'name': 'property-keyword.fusion'
+			'3':
+				'name': 'operator.fusion'
+			'4':
+				'name': 'number.fusion'
 	'property-component':
-		'begin': '^\\s+((\\w+[^\\d]\\b)\\s*(\=)\\s*(?!(Neos.Fusion\\b))(\.+\\b)(\:)(?!(Array\\b))(\.+))\\b\\s*(\{)\\s*$'
+		'begin': '^\\s+((\\.+[^\\d]\\b)\\s*(\=)\\s*(?!(Neos.Fusion\\b))(\.+\\b)(\:)(?!(Array\\b))(\.+))\\b\\s*(\{)\\s*$'
 		'beginCaptures':
 			'1':
 				'name': 'property.fusion'
@@ -179,6 +198,10 @@
 				'include': '#property-definition-dual'
 			}
 			{
+				# Property Definition Numeric
+				'include': '#property-definition-numeric'
+			}
+			{
 				# Property Array
 				'include': '#property-array'
 			}
@@ -187,8 +210,8 @@
 				'include': 'text.html.basic'
 			}
 		]
-	'property-array':
-		'begin': '^\\s+((\\w+\\b)\\s*(\=)\\s*(Neos.Fusion\\b)(\:)(Array\\b))\\s*(\{)\\s*$'
+	'property-tag':
+		'begin': '^\\s+((\\w+\\b)\\s*(\=)\\s*(Neos.Fusion\\b)(\:)(Tag\\b))\\s*(\{)\\s*$'
 		'beginCaptures':
 			'1':
 				'name': 'property.fusion'
@@ -201,7 +224,7 @@
 			'5':
 				'name': 'operator.fusion'
 			'6':
-				'name': 'property-path.fusion'
+				'name': 'property-element.fusion'
 			'7':
 				'name': 'tree.fusion'
 		'end': '^\\s+(\})\\s*$'
@@ -216,6 +239,61 @@
 			{
 				# Empty Property Array Item
 				'include': '#property-array-item-empty'
+			}
+		]
+	'property-array':
+		'begin': '^\\s+((\\w+\\b)\\s*(\=)\\s*(Neos.Fusion\\b)(\:)(Array|RawArray\\b))\\s*(\{)\\s*$'
+		'beginCaptures':
+			'1':
+				'name': 'property.fusion'
+			'2':
+				'name': 'property-keyword.fusion'
+			'3':
+				'name': 'operator.fusion'
+			'4':
+				'name': 'property-path.fusion'
+			'5':
+				'name': 'operator.fusion'
+			'6':
+				'name': 'property-element.fusion'
+			'7':
+				'name': 'tree.fusion'
+		'end': '^\\s+(\})\\s*$'
+		'endCaptures':
+			'1':
+				'name': 'tree.fusion'
+		'patterns': [
+			{
+				# Property Definition Array Item
+				'include': '#property-array-item'
+			}
+			{
+				# Property Definition Single Line
+				'include': '#property-definition-single'
+			}
+			{
+				# Property Definition Multi Line
+				'include': '#property-definition-multi'
+			}
+			{
+				# Property Definition Dual
+				'include': '#property-definition-dual'
+			}
+			{
+				# Property Definition Numeric
+				'include': '#property-definition-numeric'
+			}
+			{
+				# Property Component
+				'include': '#property-component'
+			}
+			{
+				# Property Tag
+				'include': '#property-tag'
+			}
+			{
+				# Property Array
+				'include': '#property-array'
 			}
 		]
 	'property-array-item':
@@ -253,8 +331,16 @@
 				'include': '#property-definition-dual'
 			}
 			{
+				# Property Definition Numeric
+				'include': '#property-definition-numeric'
+			}
+			{
 				# Property Component
 				'include': '#property-component'
+			}
+			{
+				# Property Tag
+				'include': '#property-tag'
 			}
 			{
 				# Property Array
@@ -359,6 +445,10 @@
 				'include': '#property-definition-dual'
 			}
 			{
+				# Property Definition Numeric
+				'include': '#property-definition-numeric'
+			}
+			{
 				# Props Listing @Styleguide
 				'include': '#props'
 			}
@@ -389,8 +479,16 @@
 				'include': '#property-definition-dual'
 			}
 			{
+				# Property Definition Numeric
+				'include': '#property-definition-numeric'
+			}
+			{
 				# Property Component
 				'include': '#property-component'
+			}
+			{
+				# Property Tag
+				'include': '#property-tag'
 			}
 			{
 				# Property Array
