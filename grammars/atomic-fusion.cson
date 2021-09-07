@@ -82,6 +82,10 @@
 				'include': '#property-definition-expression'
 			}
 			{
+				# Property Definition Condition
+				'include': '#property-definition-condition'
+			}
+			{
 				# Property Component
 				'include': '#property-component'
 			}
@@ -182,6 +186,21 @@
 				'name': 'property-value.fusion'
 			'6':
 				'name': 'quote.fusion'
+	'property-definition-condition':
+		'match': '^\\s+((\@\\w+\\b)\\s*(\=)\\s*(\')(\.*)(\'))\\s*$'
+		'captures':
+			'1':
+				'name': 'property.fusion'
+			'2':
+				'name': 'property-keyword.fusion'
+			'3':
+				'name': 'operator.fusion'
+			'4':
+				'name': 'quote.fusion'
+			'5':
+				'name': 'property-value.fusion'
+			'6':
+				'name': 'quote.fusion'
 	'property-component':
 		'begin': '^\\s+((\\.+[^\\d]\\b)\\s*(\=)\\s*(?!(Neos.Fusion\\b))(\.+\\b)(\:)(?!(Array\\b))(\.+))\\b\\s*(\{)\\s*$'
 		'beginCaptures':
@@ -223,6 +242,10 @@
 			{
 				# Property Definition Expression
 				'include': '#property-definition-expression'
+			}
+			{
+				# Property Definition Condition
+				'include': '#property-definition-condition'
 			}
 			{
 				# Property Array
@@ -311,6 +334,10 @@
 				'include': '#property-definition-expression'
 			}
 			{
+				# Property Definition Condition
+				'include': '#property-definition-condition'
+			}
+			{
 				# Property Component
 				'include': '#property-component'
 			}
@@ -364,6 +391,10 @@
 			{
 				# Property Definition Expression
 				'include': '#property-definition-expression'
+			}
+			{
+				# Property Definition Condition
+				'include': '#property-definition-condition'
 			}
 			{
 				# Property Component
@@ -484,6 +515,10 @@
 				'include': '#property-definition-expression'
 			}
 			{
+				# Property Definition Condition
+				'include': '#property-definition-condition'
+			}
+			{
 				# Props Listing @Styleguide
 				'include': '#props'
 			}
@@ -524,6 +559,10 @@
 			{
 				# Property Definition Expression
 				'include': '#property-definition-expression'
+			}
+			{
+				# Property Definition Condition
+				'include': '#property-definition-condition'
 			}
 			{
 				# Property Component
