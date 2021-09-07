@@ -679,6 +679,14 @@
 				'include': '#property-definition-expression'
 			}
 			{
+				# Property Component
+				'include': '#property-component'
+			}
+			{
+				# Property Tag
+				'include': '#property-tag'
+			}
+			{
 				# Property Array
 				'include': '#property-array'
 			}
