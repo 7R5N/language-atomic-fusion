@@ -664,6 +664,10 @@
 			'5':
 				'name': 'prototype-path.static.fusion'
 			'6':
+				'name': 'operator.static.fusion'
+			'7':
+				'name': 'language.static.fusion'
+			'8':
 				'name': 'bracket.static.fusion'
 		'end': '^([\\s\\S]*)(\\})$'
 		'endCaptures':
@@ -673,6 +677,10 @@
 			{
 				# Embed Properties
 				'include': '#property-embed'
+			}
+			{
+				# Embed Component
+				'include': '#component-embed'
 			}
 			{
 				# Property Component
@@ -685,6 +693,14 @@
 			{
 				# Property Array
 				'include': '#property-array'
+			}
+			{
+				# Property Array Item
+				'include': '#property-array-item'
+			}
+			{
+				# Property Array Item Empty
+				'include': '#property-array-item-empty'
 			}
 			{
 				# Property Definition Single Line
