@@ -658,15 +658,15 @@
 			'2':
 				'name': 'operator.static.fusion'
 			'3':
-				'name': 'prototype-path.static.fusion'
+				'name': 'property-path.fusion'
 			'4':
 				'name': 'operator.static.fusion'
 			'5':
-				'name': 'prototype-path.static.fusion'
+				'name': 'property-path.fusion'
 			'6':
 				'name': 'operator.static.fusion'
 			'7':
-				'name': 'prototype-component.fusion'
+				'name': 'property-component.fusion'
 			'8':
 				'name': 'bracket.static.fusion'
 		'end': '^([\\s\\S]*)(\\})$'
