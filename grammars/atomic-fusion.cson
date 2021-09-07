@@ -101,6 +101,10 @@
 				# Property Renderer
 				'include': '#renderer'
 			}
+			{
+				# Property Renderer
+				'include': '#renderer-fusion-object'
+			}
 			# {
 			# 	#
 			# 	'include': '#tag-class-attribute'
@@ -597,6 +601,43 @@
 			{
 				# Embed Properties
 				'include': '#property-embed'
+			}
+			{
+				# Embed Component
+				'include': '#component-embed'
+			}
+			{
+				# Import HTML Styles
+				'include': 'text.html.basic'
+			}
+		]
+	'renderer-fusion-object':
+		'begin': '^\\s+(renderer\\b)\\s*(\=)\\s*((Neos\\b)\\.(Fusion\\b)\:([A-Za-z]+))\\s*(\\{)\\s*$'
+		'beginCaptures':
+			'1':
+				'name': 'context.static.fusion'
+			'2':
+				'name': 'operator.static.fusion'
+			'3':
+				'name': 'language.static.fusion'
+			'4':
+				'name': 'quote.fusion'
+		'end': '^([\\s\\S]*)(\\})$'
+		'endCaptures':
+			'2':
+				'name': 'quote.fusion'
+		'patterns': [
+			{
+				# Embed Properties
+				'include': '#property-embed'
+			}
+			{
+				# Property Definition Expression
+				'include': '#property-definition-expression'
+			}
+			{
+				# Property Array
+				'include': '#property-array'
 			}
 			{
 				# Embed Component
