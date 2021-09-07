@@ -658,11 +658,11 @@
 			'2':
 				'name': 'operator.static.fusion'
 			'3':
-				'name': 'property-path-embedded.fusion'
+				'name': 'property-path.fusion'
 			'4':
 				'name': 'operator.static.fusion'
 			'5':
-				'name': 'property-path-embedded.fusion'
+				'name': 'property-path.fusion'
 			'6':
 				'name': 'operator.static.fusion'
 			'7':
