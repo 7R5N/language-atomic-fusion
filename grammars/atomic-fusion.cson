@@ -662,7 +662,7 @@
 			'4':
 				'name': 'operator.static.fusion'
 			'5':
-				'name': 'language.static.fusion'
+				'name': 'prototype-component.fusion'
 			'6':
 				'name': 'bracket.static.fusion'
 		'end': '^([\\s\\S]*)(\\})$'
