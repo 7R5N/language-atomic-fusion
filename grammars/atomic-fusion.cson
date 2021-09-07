@@ -662,7 +662,7 @@
 			'4':
 				'name': 'operator.static.fusion'
 			'5':
-				'name': 'property-path.fusion'
+				'name': 'property-path-embedded.fusion'
 			'6':
 				'name': 'operator.static.fusion'
 			'7':
