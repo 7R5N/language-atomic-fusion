@@ -675,10 +675,6 @@
 				'include': '#property-embed'
 			}
 			{
-				# Property Definition Expression
-				'include': '#property-definition-expression'
-			}
-			{
 				# Property Component
 				'include': '#property-component'
 			}
@@ -691,12 +687,44 @@
 				'include': '#property-array'
 			}
 			{
+				# Property Definition Single Line
+				'include': '#property-definition-single'
+			}
+			{
+				# Property Definition Multi Line
+				'include': '#property-definition-multi'
+			}
+			{
+				# Property Definition Dual
+				'include': '#property-definition-dual'
+			}
+			{
+				# Property Definition Numeric
+				'include': '#property-definition-numeric'
+			}
+			{
+				# Property Definition Expression
+				'include': '#property-definition-expression'
+			}
+			{
+				# Property Definition Condition
+				'include': '#property-definition-condition'
+			}
+			{
+				# Property Definition Condition
+				'include': '#property-definition-expression-condition'
+			}
+			{
 				# Embed Component
 				'include': '#component-embed'
 			}
 			{
 				# Import HTML Styles
 				'include': 'text.html.basic'
+			}
+			{
+				# Comments
+				'include': '#comments'
 			}
 		]
 
