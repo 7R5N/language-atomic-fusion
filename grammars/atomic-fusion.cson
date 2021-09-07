@@ -172,7 +172,7 @@
 			'4':
 				'name': 'number.fusion'
 	'property-definition-expression':
-		'match': '^\\s+((\\w+\\b)\\s*(\=)\\s*(\$\{\')(\.*)(\'\}))\\s*$'
+		'match': '^\\s+((\\w+\\b)\\s*(\=)\\s*(\\$\{\\')(\.*)(\'\\}))\\s*$'
 		'captures':
 			'1':
 				'name': 'property.fusion'
@@ -187,7 +187,7 @@
 			'6':
 				'name': 'quote.fusion'
 	'property-definition-condition':
-		'match': '^\\s+((\@\\w+\\b)\\s*(\=)\\s*(\')(\.*)(\'))\\s*$'
+		'match': '^\\s+((\\@\\w+\\b)\\s*(\=)\\s*(\')(\.*)(\'))\\s*$'
 		'captures':
 			'1':
 				'name': 'property.fusion'
