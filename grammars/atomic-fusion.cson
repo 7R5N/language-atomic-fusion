@@ -651,7 +651,7 @@
 			}
 		]
 	'renderer-fusion-object':
-		'begin': '^\\s+(renderer\\b)\\s*(\=)\\s*((Neos\\b)(\\.)(Fusion\\b)(\\:)([A-Za-z]+))\\s*(\\{)\\s*$'
+		'begin': '^\\s+(renderer\\b)\\s*(\=)\\s*((Neos\\b)\\.(Fusion\\b)(\\:)([A-Za-z]+))\\s*(\\{)\\s*$'
 		'beginCaptures':
 			'1':
 				'name': 'context.static.fusion'
