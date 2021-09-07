@@ -651,7 +651,7 @@
 			}
 		]
 	'renderer-fusion-object':
-		'begin': '^\\s+(renderer\\b)\\s*(\=)\\s*((Neos\\b)\\.(Fusion\\b)\:([A-Za-z]+))\\s*(\\{)\\s*$'
+		'begin': '^\\s+(renderer\\b)\\s*(\=)\\s*((Neos\\b)(\\.)(Fusion\\b)(\\:)([A-Za-z]+))\\s*(\\{)\\s*$'
 		'beginCaptures':
 			'1':
 				'name': 'context.static.fusion'
@@ -662,8 +662,12 @@
 			'4':
 				'name': 'operator.static.fusion'
 			'5':
-				'name': 'prototype-component.fusion'
+				'name': 'prototype-path.static.fusion'
 			'6':
+				'name': 'operator.static.fusion'
+			'7':
+				'name': 'prototype-component.fusion'
+			'8':
 				'name': 'bracket.static.fusion'
 		'end': '^([\\s\\S]*)(\\})$'
 		'endCaptures':
