@@ -86,6 +86,10 @@
 				'include': '#property-definition-condition'
 			}
 			{
+				# Property Definition Condition
+				'include': '#property-definition-expression-condition'
+			}
+			{
 				# Property Component
 				'include': '#property-component'
 			}
@@ -267,6 +271,10 @@
 				'include': '#property-definition-condition'
 			}
 			{
+				# Property Definition Condition
+				'include': '#property-definition-expression-condition'
+			}
+			{
 				# Property Array
 				'include': '#property-array'
 			}
@@ -357,6 +365,10 @@
 				'include': '#property-definition-condition'
 			}
 			{
+				# Property Definition Condition
+				'include': '#property-definition-expression-condition'
+			}
+			{
 				# Property Component
 				'include': '#property-component'
 			}
@@ -414,6 +426,10 @@
 			{
 				# Property Definition Condition
 				'include': '#property-definition-condition'
+			}
+			{
+				# Property Definition Condition
+				'include': '#property-definition-expression-condition'
 			}
 			{
 				# Property Component
@@ -538,6 +554,10 @@
 				'include': '#property-definition-condition'
 			}
 			{
+				# Property Definition Condition
+				'include': '#property-definition-expression-condition'
+			}
+			{
 				# Props Listing @Styleguide
 				'include': '#props'
 			}
@@ -582,6 +602,10 @@
 			{
 				# Property Definition Condition
 				'include': '#property-definition-condition'
+			}
+			{
+				# Property Definition Condition
+				'include': '#property-definition-expression-condition'
 			}
 			{
 				# Property Component
