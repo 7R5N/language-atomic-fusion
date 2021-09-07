@@ -78,6 +78,10 @@
 				'include': '#property-definition-numeric'
 			}
 			{
+				# Property Definition Expression
+				'include': '#property-definition-expression'
+			}
+			{
 				# Property Component
 				'include': '#property-component'
 			}
@@ -163,6 +167,21 @@
 				'name': 'operator.fusion'
 			'4':
 				'name': 'number.fusion'
+	'property-definition-expression':
+		'match': '^\\s+((\\w+\\b)\\s*(\=)\\s*(\$\{\')(\.*)(\'\}))\\s*$'
+		'captures':
+			'1':
+				'name': 'property.fusion'
+			'2':
+				'name': 'property-keyword.fusion'
+			'3':
+				'name': 'operator.fusion'
+			'4':
+				'name': 'quote.fusion'
+			'5':
+				'name': 'property-value.fusion'
+			'6':
+				'name': 'quote.fusion'
 	'property-component':
 		'begin': '^\\s+((\\.+[^\\d]\\b)\\s*(\=)\\s*(?!(Neos.Fusion\\b))(\.+\\b)(\:)(?!(Array\\b))(\.+))\\b\\s*(\{)\\s*$'
 		'beginCaptures':
@@ -200,6 +219,10 @@
 			{
 				# Property Definition Numeric
 				'include': '#property-definition-numeric'
+			}
+			{
+				# Property Definition Expression
+				'include': '#property-definition-expression'
 			}
 			{
 				# Property Array
@@ -284,6 +307,10 @@
 				'include': '#property-definition-numeric'
 			}
 			{
+				# Property Definition Expression
+				'include': '#property-definition-expression'
+			}
+			{
 				# Property Component
 				'include': '#property-component'
 			}
@@ -333,6 +360,10 @@
 			{
 				# Property Definition Numeric
 				'include': '#property-definition-numeric'
+			}
+			{
+				# Property Definition Expression
+				'include': '#property-definition-expression'
 			}
 			{
 				# Property Component
@@ -449,8 +480,16 @@
 				'include': '#property-definition-numeric'
 			}
 			{
+				# Property Definition Expression
+				'include': '#property-definition-expression'
+			}
+			{
 				# Props Listing @Styleguide
 				'include': '#props'
+			}
+			{
+				# Comments
+				'include': '#comments'
 			}
 		]
 	# Props @Styleguide
@@ -481,6 +520,10 @@
 			{
 				# Property Definition Numeric
 				'include': '#property-definition-numeric'
+			}
+			{
+				# Property Definition Expression
+				'include': '#property-definition-expression'
 			}
 			{
 				# Property Component
